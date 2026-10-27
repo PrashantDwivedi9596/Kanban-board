@@ -5,13 +5,19 @@ JavaScript.**
 
 Organize tasks, move them between workflow stages, and keep your board
 saved in the browser.
-:::
 
-------------------------------------------------------------------------
+---
+
 ## 🚀 Improvements for later
-### Make more interactive UI
--   We can make the UI more interactive as when user want to delete a task which is mentioned in the 
 
+### Make more interactive UI
+
+- We can make the UI more interactive as when user want to delete a task which is todo he will face the difficulity as the task may pop out or run away from the cursor and more
+- We can make a animation if a task has spent sufficient more time in todo it may show snoozzing or sleeping like animation or come and pop in like a alert
+
+### Make a proper backend
+
+- Make a proper backend for the project so it can be bit more powerful to present and not be just a dummy project but a real rational project which can be used
 
 ## 📌 Overview
 
@@ -19,9 +25,9 @@ Kanban is a lightweight, front-end task management project inspired by
 the Kanban workflow. It provides three columns to track work from start
 to completion:
 
--   **To Do** --- tasks that are waiting to be started.
--   **In Progress** --- tasks currently being worked on.
--   **Done** --- completed tasks.
+- **To Do** --- tasks that are waiting to be started.
+- **In Progress** --- tasks currently being worked on.
+- **Done** --- completed tasks.
 
 The project focuses on practicing DOM manipulation, native drag-and-drop
 events, browser storage, CSS Flexbox, and custom UI styling without a
@@ -29,18 +35,18 @@ framework or backend.
 
 ## ✨ Features
 
--   **Three workflow columns:** To Do, In Progress, and Done.
--   **Add tasks:** Create a task with a title and description using the
-    modal.
--   **Drag and drop:** Move task cards between columns.
--   **Delete tasks:** Remove tasks that are no longer needed.
--   **Local persistence:** Tasks are stored in `localStorage`, so they
-    remain available after a page reload in the same browser.
--   **Scrollable columns:** Each column can display many tasks without
-    expanding beyond its available height.
--   **Dark UI:** A dark color palette, rounded cards, and Poppins
-    typography.
--   **Vanilla JavaScript:** No front-end framework is required.
+- **Three workflow columns:** To Do, In Progress, and Done.
+- **Add tasks:** Create a task with a title and description using the
+  modal.
+- **Drag and drop:** Move task cards between columns.
+- **Delete tasks:** Remove tasks that are no longer needed.
+- **Local persistence:** Tasks are stored in `localStorage`, so they
+  remain available after a page reload in the same browser.
+- **Scrollable columns:** Each column can display many tasks without
+  expanding beyond its available height.
+- **Dark UI:** A dark color palette, rounded cards, and Poppins
+  typography.
+- **Vanilla JavaScript:** No front-end framework is required.
 
 ## 🖥️ Preview
 
@@ -54,25 +60,29 @@ title, description, and delete button.
 
 ## 🧰 Tech Stack
 
-  -----------------------------------------------------------------------
-  Technology                          Usage
-  ----------------------------------- -----------------------------------
-  HTML5                               Page structure and task-board
-                                      markup
+---
 
-  CSS3                                Dark theme, layout, modal, task
-                                      cards, and scrolling
+Technology Usage
 
-  JavaScript (ES6+)                   Task creation, deletion,
-                                      drag-and-drop, and DOM updates
+---
 
-  `localStorage`                      Persistence across page reloads in
-                                      the same browser
-  -----------------------------------------------------------------------
+HTML5 Page structure and task-board
+markup
+
+CSS3 Dark theme, layout, modal, task
+cards, and scrolling
+
+JavaScript (ES6+) Task creation, deletion,
+drag-and-drop, and DOM updates
+
+`localStorage` Persistence across page reloads in
+the same browser
+
+---
 
 ## 📁 Project Structure
 
-``` text
+```text
 kanban/
 ├── index.html       # Main HTML structure
 ├── extra.css        # Styles and visual design
@@ -120,7 +130,7 @@ serialized as JSON under the key `tasks`.
 
 The stored data follows this general structure:
 
-``` json
+```json
 {
   "todo": [
     {
@@ -157,11 +167,11 @@ the saved board. This project does not sync tasks between devices.
 
 The board uses native HTML Drag and Drop API events:
 
--   `dragstart` identifies the task being dragged.
--   `dragover` calls `preventDefault()` so a column can accept a drop.
--   `drop` appends the dragged task to the destination column.
--   `dragend` clears the active dragged-task reference and removes hover
-    styling.
+- `dragstart` identifies the task being dragged.
+- `dragover` calls `preventDefault()` so a column can accept a drop.
+- `drop` appends the dragged task to the destination column.
+- `dragend` clears the active dragged-task reference and removes hover
+  styling.
 
 The destination column's `.tasks` container receives the card, and the
 board is saved again so the new column assignment persists after reload.
@@ -174,7 +184,7 @@ vertical overflow.
 
 The key pattern is:
 
-``` css
+```css
 .task-column {
   display: flex;
   flex-direction: column;
@@ -194,52 +204,52 @@ The key pattern is:
 
 Why these properties matter:
 
--   `display: flex` and `flex-direction: column` create a vertical
-    column layout.
--   `flex: 1` lets `.tasks` use the remaining available height.
--   `min-height: 0` allows the scroll container to shrink within its
-    flex parent.
--   `overflow-y: auto` enables scrolling when content exceeds the
-    available height.
--   `flex-shrink: 0` prevents task cards from compressing to fit the
-    column, allowing the content to overflow and become scrollable.
+- `display: flex` and `flex-direction: column` create a vertical
+  column layout.
+- `flex: 1` lets `.tasks` use the remaining available height.
+- `min-height: 0` allows the scroll container to shrink within its
+  flex parent.
+- `overflow-y: auto` enables scrolling when content exceeds the
+  available height.
+- `flex-shrink: 0` prevents task cards from compressing to fit the
+  column, allowing the content to overflow and become scrollable.
 
 If the scrollbar is hidden with browser-specific CSS, scrolling may
 still work, but the scrollbar will not be visible.
 
 ## 🧠 Concepts Practiced
 
--   Selecting elements with `querySelector()` and `querySelectorAll()`.
--   Creating and updating DOM elements with `createElement()`,
-    `appendChild()`, and `textContent`.
--   Handling click and drag-and-drop events.
--   Using arrays and objects to organize task data.
--   Converting data to and from JSON.
--   Persisting state with `localStorage`.
--   Building layouts with Flexbox.
--   Managing overflow and scrollable regions.
--   Keeping the DOM and stored data synchronized.
+- Selecting elements with `querySelector()` and `querySelectorAll()`.
+- Creating and updating DOM elements with `createElement()`,
+  `appendChild()`, and `textContent`.
+- Handling click and drag-and-drop events.
+- Using arrays and objects to organize task data.
+- Converting data to and from JSON.
+- Persisting state with `localStorage`.
+- Building layouts with Flexbox.
+- Managing overflow and scrollable regions.
+- Keeping the DOM and stored data synchronized.
 
 ## ⚠️ Current Limitations
 
--   Tasks are stored only in the current browser's local storage; there
-    is no account system, server, or cross-device synchronization.
--   The board currently uses a fixed set of three workflow columns.
--   There is no task editing, due-date, priority, search, or filtering
-    feature yet.
--   Browser storage can be cleared by the user or browser settings.
+- Tasks are stored only in the current browser's local storage; there
+  is no account system, server, or cross-device synchronization.
+- The board currently uses a fixed set of three workflow columns.
+- There is no task editing, due-date, priority, search, or filtering
+  feature yet.
+- Browser storage can be cleared by the user or browser settings.
 
 ## 🛣️ Possible Improvements
 
--   Edit existing tasks.
--   Add task priority, due dates, and labels.
--   Display live task counts in each column.
--   Add search and filtering.
--   Improve mobile and tablet layouts.
--   Add confirmation before deleting a task.
--   Support keyboard-accessible alternatives to drag-and-drop.
--   Add export/import for task data.
--   Add a backend and authentication for multi-device synchronization.
+- Edit existing tasks.
+- Add task priority, due dates, and labels.
+- Display live task counts in each column.
+- Add search and filtering.
+- Improve mobile and tablet layouts.
+- Add confirmation before deleting a task.
+- Support keyboard-accessible alternatives to drag-and-drop.
+- Add export/import for task data.
+- Add a backend and authentication for multi-device synchronization.
 
 ## 🤝 Contributing
 
@@ -255,7 +265,7 @@ Suggestions and improvements are welcome.
 No license has been specified yet. Add a `LICENSE` file and update this
 section before distributing the project for reuse.
 
-------------------------------------------------------------------------
+---
 
 ::: {align="center"}
 **Built with HTML, CSS, and JavaScript.**
