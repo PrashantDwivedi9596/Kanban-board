@@ -1,4 +1,3 @@
-::: {align="center"}
 # Kanban
 
 **A simple, dark-themed task board built with HTML, CSS, and vanilla
@@ -9,6 +8,10 @@ saved in the browser.
 :::
 
 ------------------------------------------------------------------------
+## 🚀 Improvements for later
+### Make more interactive UI
+-   We can make the UI more interactive as when user want to delete a task which is mentioned in the 
+
 
 ## 📌 Overview
 
