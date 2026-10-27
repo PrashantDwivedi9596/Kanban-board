@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --background-color: #060606;
+  --bg-button-color: #161616;
+  --primary-text-color: rgb(218, 218, 218);
+  --delete-color: #dd2323;
+  --next-color: rgb(29, 120, 85);
+
+
+  /* backgrounds */
+  --bg-task-col: #1c1c1e;
+  --bg-task: #2b2c30;
+  --bg-translucent: rgba(43, 44, 48, 0.5);
+
+
+  /* padding variable */
+  --nav-padding: 1rem 2rem;
+  --section-padding: 1rem 2rem;
+  --padding-s: 5px;
+  --padding-m: 10px;
+  --padding-l: 15px;
+  --padding-xl: 20px;
+  --padding-xxl: 35px;
+  --padding-xxxl: 50px
+    /* font size variables */
+    --font-size-m: 15px;
+  /* border variables */
+  --border-tasks-selected: 2px dashed var(--primary-text-color);
+
+  /* border-radius variables */
+  --border-radius-s: 5px;
+  --border-radius-m: 10px;
+  --border-radius-l: 15px;
+  --border-radius-xl: 20px;
+  --border-radius-xxl: 35px;
+
+
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  border-bottom: 3px solid rgba(117, 114, 114, 0.552);
+  background-color: var(--bg-translucent);
+  backdrop-filter: blur(1px);
+  padding: var(--nav-padding);
+  border-radius: var(--border-radius-m);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav button {
+  background-color: var(--bg-button-color);
+  border: none;
+  outline: none;
+  color: var(--primary-text-color);
+  padding: var(--padding-m) var(--padding-l);
+  border-radius: var(--border-radius-m);
+  border: 1px solid rgb(164, 163, 163);
+  cursor: pointer;
+}
+
+nav .left {
+  font-size: xx-large;
+  font-weight: 800;
+  color: red;
+}
+
+button {
+  background-color: var(--bg-button-color);
+  border: none;
+  outline: none;
+  color: var(--primary-text-color);
+  padding: var(--padding-s) var(--padding-s);
+  border-radius: var(--border-radius-s);
+  cursor: pointer;
+}
+
+section {
+  padding: var(--section-padding);
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: var(--padding-xxl);
+}
+
+
+section .task-column {
+  background-color: var(--bg-task-col);
+  height: 100%;
+  max-height: 85vh;
+  width: 100%;
+  padding: var(--padding-l);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  border-radius: var(--border-radius-m);
+  cursor: default;
+  overflow: hidden;
+}
+
+section .task-column.hover-over {
+  border: var(--border-tasks-selected);
+  scale: 1.03;
+  cursor: grabbing;
+
+}
+
+section .task-column .heading {
+  width: 100%;
+  padding: var(--padding-m);
+  font-size: 17px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(111, 106, 106, 0.463);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section .task-column .tasks {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  padding: var(--padding-s);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: var(--padding-m);
+  cursor: default;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+}
+
+section .task-column .tasks::-webkit-scrollbar {
+  display: none;
+}
+
+section .task-column .tasks .task {
+  background-color: var(--bg-task);
+  min-height: 0;
+  padding: var(--padding-m);
+  border-radius: var(--border-radius-s);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--padding-m);
+  flex-shrink: 0;
+  cursor: grab;
+  opacity: 1;
+  user-select: none;
+  -webkit-user-drag: element;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+/* While dragging a task */
+section .task-column .tasks .task:active {
+  cursor: grabbing;
+}
+
+section .task-column .tasks .task .task-view {
+  padding: var(--padding-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-m);
+}
+
+section .task-column .tasks .task .task-view {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+section .task-column .tasks .task .actions {
+  height: 100%;
+  margin-top: var(--padding-m);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+  gap: var(--padding-l);
+}
+
+section .task-column .tasks .task button {
+  color: var(--primary-text-color);
+  padding: var(--padding-s) var(--padding-m);
+  font-weight: 600;
+  background-color: var(--delete-color);
+}
+
+section .task-column .tasks .task .actions .delete {
+  background-color: var(--delete-color);
+}
+
+section .task-column .tasks .task .actions .next {
+  background-color: var(--next-color);
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-text-color);
+  user-select: none;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal .bg {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-translucent);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal .center {
+  padding: var(--padding-xxl);
+  border-radius: var(--border-radius-m);
+  border: 2px solid rgba(101, 96, 96, 0.659);
+  background-color: var(--bg-task);
+  z-index: 10;
+  display: flex;
+  gap: var(--padding-m);
+  flex-direction: column;
+}
+
+.modal .center #title,
+.modal .center #desc,
+.modal .center button {
+  padding: var(--padding-m);
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius-s);
+  font-weight: 600;
+  background-color: var(--bg-task-col);
+  color: var(--primary-text-color);
+  resize: none;
+  backdrop-filter: blur(-5px);
+  font-size: var(--font-size-m)
+}
+
+.model .center #desc {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modal .center #desc::-webkit-scrollbar {
+  display: none
+}
+
+.modal .center button {
+  width: fit-content;
+  align-self: center;
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  padding: var(--padding-m) var(--padding-l);
+  border: 1px solid rgba(101, 99, 99, 0.764)
+}
+
+.modal .center button:hover {
+  scale: 1.05;
+}
